@@ -6,7 +6,7 @@ var speed := 50
 var can_move : bool = true
 @onready var move_state_machine = $Animation/AnimationTree.get("parameters/MoveStateMachine/playback")
 @onready var tool_state_machine = $Animation/AnimationTree.get("parameters/ToolStateMachine/playback")
-var current_tool: Enum.Tool = Enum.Tool.WATER
+var current_tool: Enum.Tool = Enum.Tool.HOE
 var current_seed: Enum.Seed
 
 signal tool_use(tool: Enum.Tool, pos: Vector2)
