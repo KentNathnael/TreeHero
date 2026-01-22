@@ -1,0 +1,34 @@
+extends StaticBody2D
+
+const apple_texture = preload("res://graphics/plants/apple.png")
+
+var health := 3:
+	set(value):
+		health = value
+		print(value)
+
+#tree is killable
+
+func _ready() -> void:
+	create_apples(3)
+
+func hit(tool: Enum.Tool):
+	if tool == Enum.Tool.AXE:
+		$FlashSprite2D.flash()
+		get_apple()
+		health -= 1
+
+
+func create_apples(num: int):
+	var apple_markers = $AppleSpawnPosition.get_children().duplicate(true)
+	for i in range(num):
+		var pos_marker = apple_markers.pop_at(randi_range(0, apple_markers.size()-1))
+		var sprite = Sprite2D.new()
+		sprite.texture = apple_texture
+		$Apples.add_child(sprite)
+		sprite.position = pos_marker.position
+
+func get_apple():
+	if $Apples.get_children():
+		$Apples.get_children().pick_random().queue_free()
+		print('get apple')

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dkaf0otbgtrp5"]
+[gd_scene load_steps=19 format=4 uid="uid://dkaf0otbgtrp5"]
 
 [ext_resource type="Texture2D" uid="uid://b1cmu3aai85qc" path="res://graphics/tilesets/grass.png" id="1_bovvr"]
 [ext_resource type="Script" uid="uid://630pgduism86" path="res://scenes/levels/level.gd" id="1_urvlt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cpjr8yl2yentc" path="res://graphics/tilesets/soil.png" id="2_xb4v1"]
 [ext_resource type="Texture2D" uid="uid://vrdy2gp08qay" path="res://graphics/tilesets/soil_water.png" id="5_d4w6o"]
 [ext_resource type="Shader" uid="uid://j58cfvxwb7ap" path="res://Shader/circle_transition.gdshader" id="7_mbbpy"]
+[ext_resource type="PackedScene" uid="uid://8vkpxd1q4pmx" path="res://scenes/objects/tree.tscn" id="7_ouxo3"]
 
 [sub_resource type="Gradient" id="Gradient_d4w6o"]
 offsets = PackedFloat32Array(0, 0.3227848, 0.5, 1)
@@ -847,9 +848,13 @@ tile_set = SubResource("TileSet_ouxo3")
 
 [node name="Objects" type="Node2D" parent="."]
 y_sort_enabled = true
+position = Vector2(11, -19)
 
 [node name="Player" parent="Objects" instance=ExtResource("2_b2cq8")]
 position = Vector2(186, 342)
+
+[node name="Tree" parent="Objects" instance=ExtResource("7_ouxo3")]
+position = Vector2(196, 316)
 
 [node name="Overlay" type="Node2D" parent="."]
 
@@ -862,6 +867,10 @@ material = SubResource("ShaderMaterial_ouxo3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.058420584, 0.0584206, 0.058420606, 1)
@@ -872,5 +881,7 @@ color = Color(0.058420584, 0.0584206, 0.058420606, 1)
 wait_time = 180.0
 one_shot = true
 autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [connection signal="tool_use" from="Objects/Player" to="." method="_on_player_tool_use"]

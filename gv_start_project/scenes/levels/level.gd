@@ -33,6 +33,11 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 				plant.setup(grid_coord, $Objects)
 				used_array.append(grid_coord)
 		
+		Enum.Tool.AXE, Enum.Tool.SWORD:
+			for object in get_tree().get_nodes_in_group('Objects'):
+				if object.position.distance_to(pos) < 20:
+					object.hit(tool)
+		
 @onready var daytransition_material = $Overlay/CanvasLayer/DayTransitionLayer.material
 @export var daytime_color: Gradient
 

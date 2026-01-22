@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://8vkpxd1q4pmx"]
+
+[ext_resource type="PackedScene" uid="uid://d4gsh33qtlsfq" path="res://scenes/vfx/flash_sprite_2d.tscn" id="1_5qchx"]
+[ext_resource type="Shader" uid="uid://cx2mm7pc78fwu" path="res://Shader/flash.tres" id="2_eogu4"]
+[ext_resource type="Script" uid="uid://drqv5opcmv0gl" path="res://scenes/objects/apple_spawn_position.gd" id="3_eogu4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r6wkp"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7yu6v"]
+resource_local_to_scene = true
+shader = ExtResource("2_eogu4")
+shader_parameter/Color = Color(1, 1, 1, 1)
+shader_parameter/Progress = 0.0
+
+[node name="Tree" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Objects"]]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_r6wkp")
+
+[node name="FlashSprite2D" parent="." instance=ExtResource("1_5qchx")]
+material = SubResource("ShaderMaterial_7yu6v")
+position = Vector2(0, 2)
+
+[node name="AppleSpawnPosition" type="Node2D" parent="."]
+script = ExtResource("3_eogu4")
+
+[node name="Marker2D" type="Marker2D" parent="AppleSpawnPosition"]
+position = Vector2(8, -2)
+
+[node name="Marker2D2" type="Marker2D" parent="AppleSpawnPosition"]
+position = Vector2(-7, 4)
+
+[node name="Marker2D3" type="Marker2D" parent="AppleSpawnPosition"]
+position = Vector2(2, -8)
+
+[node name="Marker2D4" type="Marker2D" parent="AppleSpawnPosition"]
+position = Vector2(-10, -5)
+
+[node name="Apples" type="Node2D" parent="."]
