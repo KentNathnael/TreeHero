@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://8vkpxd1q4pmx"]
+[gd_scene load_steps=8 format=3 uid="uid://8vkpxd1q4pmx"]
 
 [ext_resource type="PackedScene" uid="uid://d4gsh33qtlsfq" path="res://scenes/vfx/flash_sprite_2d.tscn" id="1_5qchx"]
 [ext_resource type="Script" uid="uid://b0oc412y84n7r" path="res://scenes/objects/tree.gd" id="1_7yu6v"]
 [ext_resource type="Shader" uid="uid://cx2mm7pc78fwu" path="res://Shader/flash.tres" id="2_eogu4"]
+[ext_resource type="Texture2D" uid="uid://dyxbmdangl8xx" path="res://graphics/plants/stump.png" id="2_mbbxw"]
 [ext_resource type="Script" uid="uid://drqv5opcmv0gl" path="res://scenes/objects/apple_spawn_position.gd" id="3_eogu4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r6wkp"]
@@ -23,6 +24,10 @@ script = ExtResource("1_7yu6v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Objects"]]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_r6wkp")
+
+[node name="Stump" type="Sprite2D" parent="."]
+position = Vector2(0, 12.5)
+texture = ExtResource("2_mbbxw")
 
 [node name="FlashSprite2D" parent="." instance=ExtResource("1_5qchx")]
 material = SubResource("ShaderMaterial_7yu6v")

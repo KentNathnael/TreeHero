@@ -5,9 +5,13 @@ const apple_texture = preload("res://graphics/plants/apple.png")
 var health := 3:
 	set(value):
 		health = value
-		print(value)
-
-#tree is killable
+		if health <= 0:
+			$FlashSprite2D.hide()
+			$Stump.show()
+			var shape = RectangleShape2D.new()
+			shape.size = Vector2(12, 6)
+			$CollisionShape2D.shape = shape
+			$CollisionShape2D.position.y = 8
 
 func _ready() -> void:
 	create_apples(3)
