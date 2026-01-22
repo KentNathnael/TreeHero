@@ -24,10 +24,12 @@ func get_basic_input():
 	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):
 		var dir = Input.get_axis("tool_backward", "tool_forward")
 		current_tool = posmod(current_tool + int(dir), Enum.Tool.size()) as Enum.Tool
+		$ToolUI.reveal(true)
 		# print("Tool Enums : ", current_tool) 
 	
 	if Input.is_action_just_pressed("seed_forward"):
 		current_seed = posmod(current_seed + 1, Enum.Seed.size()) as Enum.Seed
+		$ToolUI.reveal(false)
 		# print("Seed Enums : ", current_seed)
 		
 	if Input.is_action_just_pressed("action"):

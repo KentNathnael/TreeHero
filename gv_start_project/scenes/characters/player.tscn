@@ -1,7 +1,8 @@
-[gd_scene load_steps=166 format=3 uid="uid://b0mnopqlx5dix"]
+[gd_scene load_steps=167 format=3 uid="uid://b0mnopqlx5dix"]
 
 [ext_resource type="Script" uid="uid://dbmbhotl3mjb4" path="res://scenes/characters/player.gd" id="2_76oj4"]
 [ext_resource type="Texture2D" uid="uid://bp3sfnx2rutrs" path="res://graphics/characters/main/main_basic.png" id="3_6eyoc"]
+[ext_resource type="PackedScene" uid="uid://p2j0nan1oein" path="res://scenes/ui/tool_ui.tscn" id="3_76oj4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atpat"]
 radius = 4.0
@@ -1494,7 +1495,6 @@ script = ExtResource("2_76oj4")
 texture = ExtResource("3_6eyoc")
 hframes = 33
 vframes = 4
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_atpat")
@@ -1526,6 +1526,8 @@ parameters/ToolOneShot/request = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="ToolUI" parent="." instance=ExtResource("3_76oj4")]
 
 [connection signal="animation_finished" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="animation_started" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_started"]
