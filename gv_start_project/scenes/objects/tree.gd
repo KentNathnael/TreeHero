@@ -17,7 +17,7 @@ func hit(tool: Enum.Tool):
 		$FlashSprite2D.flash()
 		get_apple()
 		health -= 1
-
+		
 
 func create_apples(num: int):
 	var apple_markers = $AppleSpawnPosition.get_children().duplicate(true)
