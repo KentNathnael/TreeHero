@@ -1,23 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://drbva1bcj2hsd"]
+[gd_scene load_steps=8 format=3 uid="uid://drbva1bcj2hsd"]
 
 [ext_resource type="Script" uid="uid://re3ek1jjo1f4" path="res://scenes/objects/plant.gd" id="1_fvfks"]
 [ext_resource type="Texture2D" uid="uid://b41e01wg87oo5" path="res://graphics/plants/wheat.png" id="1_re4db"]
-[ext_resource type="Script" uid="uid://bdcbx2l43bxac" path="res://resources/plant_res.gd" id="2_7bmar"]
-
-[sub_resource type="Resource" id="Resource_0a33w"]
-script = ExtResource("2_7bmar")
-texture = ExtResource("1_re4db")
-metadata/_custom_type_script = "uid://bdcbx2l43bxac"
+[ext_resource type="PackedScene" uid="uid://d4gsh33qtlsfq" path="res://scenes/vfx/flash_sprite_2d.tscn" id="3_0a33w"]
+[ext_resource type="Shader" uid="uid://cx2mm7pc78fwu" path="res://Shader/flash.tres" id="4_yb5fs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvfks"]
 radius = 3.0
 height = 10.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvfks"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_whlcx"]
+resource_local_to_scene = true
+shader = ExtResource("4_yb5fs")
+shader_parameter/Color = Color(1, 1, 1, 1)
+shader_parameter/Progress = 0.0
+
 [node name="Plant" type="StaticBody2D" groups=["Plants"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_fvfks")
-res = SubResource("Resource_0a33w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -10)
@@ -26,3 +29,19 @@ hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_fvfks")
+
+[node name="CollisionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource("CircleShape2D_fvfks")
+
+[node name="FlashSprite2D" parent="." instance=ExtResource("3_0a33w")]
+material = SubResource("ShaderMaterial_whlcx")
+position = Vector2(0, -9)
+texture = null
+hframes = 4
+frame = 0
+
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]

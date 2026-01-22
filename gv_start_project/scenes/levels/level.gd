@@ -20,6 +20,7 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 				#print("ada cells")
 			if has_soil:
 				$Layers/SoilWaterLayer.set_cell(grid_coord, 0, Vector2i(randi_range(0,2), 0))
+				
 		Enum.Tool.FISH:
 			if not grid_coord in $Layers/GrassLayer.get_used_cells():
 				print('fishing')
@@ -29,8 +30,11 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 				
 		Enum.Tool.SEED:
 			if has_soil and grid_coord not in used_array:
+				Sprite2D.new()
+				var plant_res = PlantResource.new()
+				plant_res.setup($Objects/Player.current_seed)
 				var plant = plant_scene.instantiate()
-				plant.setup(grid_coord, $Objects)
+				plant.setup(grid_coord, $Objects, plant_res)
 				used_array.append(grid_coord)
 		
 		Enum.Tool.AXE, Enum.Tool.SWORD:
