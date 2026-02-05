@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://3xt7ogoq6wbb"]
+[gd_scene load_steps=3 format=3 uid="uid://b2xy54y1oga62"]
 
 [ext_resource type="Texture2D" uid="uid://btjy01hwoemkf" path="res://graphics/icons/axe.png" id="1_l0pbw"]
-[ext_resource type="Script" uid="uid://8ufirjcyc2wa" path="res://scenes/ui/tool_ui_texture.gd" id="1_lwqux"]
+[ext_resource type="Script" uid="uid://bxua6x0uk7qya" path="res://scenes/ui/tool_ui_texture.gd" id="1_lwqux"]
 
-[node name="ToolUiTexture" type="Control"]
+[node name="ToolUITexture" type="Control"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 3
 anchors_preset = 0

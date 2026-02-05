@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4gsh33qtlsfq"]
+[gd_scene load_steps=4 format=3 uid="uid://b1a4cl0kv3lpw"]
 
-[ext_resource type="Shader" uid="uid://cx2mm7pc78fwu" path="res://Shader/flash.tres" id="1_6twfp"]
-[ext_resource type="Texture2D" uid="uid://d3pi6mohcmq4p" path="res://graphics/plants/tree.png" id="2_6twfp"]
-[ext_resource type="Script" uid="uid://ghuj2tv5wbrq" path="res://scenes/vfx/flash_sprite_2d.gd" id="3_1h30i"]
+[ext_resource type="Shader" uid="uid://b6nm5dtkeitqy" path="res://shaders/flash.tres" id="1_6twfp"]
+[ext_resource type="Script" uid="uid://cu4jxaqqt62y3" path="res://scenes/vfx/flash_sprite_2d.gd" id="3_1h30i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nupb0"]
 resource_local_to_scene = true
@@ -12,8 +11,4 @@ shader_parameter/Progress = 0.0
 
 [node name="FlashSprite2D" type="Sprite2D"]
 material = SubResource("ShaderMaterial_nupb0")
-position = Vector2(576, 430)
-texture = ExtResource("2_6twfp")
-hframes = 2
-frame = 1
 script = ExtResource("3_1h30i")

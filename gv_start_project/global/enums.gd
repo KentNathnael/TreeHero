@@ -1,8 +1,6 @@
 extends Node
 
-# Mengkategorikasikan game nya
-
-enum Style {BASIC, COWBOY, ENGLISH, BASEBALL, BEANIE, STRAW, CAP}
+enum Style {BASIC, COWBOY, ENGLISH, BASEBALL, BEANIE, STRAW}
 enum State {DEFAULT, FISHING, BUILDING, SHOP}
 enum Tool {AXE, HOE, SWORD, WATER, FISH, SEED}
 enum Machine {SPRINKLER, FISHER, SCARECROW, DELETE}

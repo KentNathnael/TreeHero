@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://p2j0nan1oein"]
+[gd_scene load_steps=2 format=3 uid="uid://brl0me0ik87pi"]
 
-[ext_resource type="Script" uid="uid://b6fvpqp62ree2" path="res://scenes/ui/tool_ui.gd" id="1_440vi"]
+[ext_resource type="Script" uid="uid://b3mvdih2q2xhg" path="res://scenes/ui/tool_ui.gd" id="1_440vi"]
 
 [node name="ToolUI" type="Control"]
 layout_mode = 3
