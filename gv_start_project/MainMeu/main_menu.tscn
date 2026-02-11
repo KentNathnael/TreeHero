@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://v10hj1fec447"]
+
+[ext_resource type="Texture2D" uid="uid://bjtjls82n0bw6" path="res://graphics/MainMenu/MainMenu.png" id="1_c7waj"]
+[ext_resource type="Script" uid="uid://co70k4gj78bnj" path="res://MainMeu/main_menu.gd" id="1_wfwck"]
+[ext_resource type="FontFile" uid="uid://pctatblkht3m" path="res://graphics/fonts/HomeVideo-Regular.ttf" id="2_bnhmy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnhmy"]
+texture = ExtResource("1_c7waj")
+modulate_color = Color(0.9166399, 0.91663986, 0.9166398, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkj37"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7waj"]
+bg_color = Color(0.7586802, 0.5577514, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnhmy"]
+bg_color = Color(0.9137255, 0.6745098, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7waj"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wfwck")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bnhmy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -401.0
+offset_top = -294.0
+offset_right = 409.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Start_but" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bnhmy")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_mkj37")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c7waj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bnhmy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c7waj")
+text = "Start Game"
+
+[node name="Start_but2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bnhmy")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_mkj37")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c7waj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bnhmy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c7waj")
+text = "Option
+"
+
+[node name="Start_but3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bnhmy")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_mkj37")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c7waj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bnhmy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c7waj")
+text = "Exit"
+
+[connection signal="pressed" from="HBoxContainer/Start_but" to="." method="_on_start_but_pressed"]
+[connection signal="pressed" from="HBoxContainer/Start_but2" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="HBoxContainer/Start_but3" to="." method="_on_exit_pressed"]
