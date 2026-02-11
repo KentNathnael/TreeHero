@@ -1551,7 +1551,6 @@ script = ExtResource("2_76oj4")
 texture = ExtResource("3_6eyoc")
 hframes = 33
 vframes = 4
-frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_atpat")
@@ -1585,6 +1584,10 @@ parameters/FishBlendSpace2D/blend_position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 1176
+limit_bottom = 843
 
 [node name="ToolUI" parent="." instance=ExtResource("3_76oj4")]
 
