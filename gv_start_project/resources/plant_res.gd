@@ -8,10 +8,7 @@ class_name PlantResource extends Resource
 @export var name: String
 
 var age: float
-var death_count: int:
-	set(value):
-		death_count = value
-		emit_changed()
+var death_count: int
 var dead: bool:
 	set(value):
 		dead = value
@@ -31,14 +28,11 @@ func setup(seed_enum: Enum.Seed, reward_item: Enum.Item):
 func grow(sprite: Sprite2D):
 	age = min(age + grow_speed, h_frames)
 	sprite.frame = int(age)
-	death_count = 0
 
 
-func decay(plant: StaticBody2D):
+func decay():
 	death_count += 1
-	if death_count >= death_max:
-		emit_changed()
-		plant.queue_free()
+	emit_changed()
 
 
 func get_complete():
@@ -47,3 +41,4 @@ func get_complete():
 
 func damage():
 	death_count += 1
+	emit_changed()

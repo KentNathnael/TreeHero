@@ -16,6 +16,7 @@ func setup(grid_coord: Vector2i, parent: Node2D, new_res: PlantResource, plant_d
 
 func update():
 	if res.death_count >= res.death_max:
+		death.emit(coord)
 		queue_free()
 
 
@@ -23,7 +24,10 @@ func grow(watered: bool):
 	if watered:
 		res.grow($FlashSprite2D)
 	else:
-		res.decay(self)
+		res.decay()
+		if res.death_count >= res.death_max and not is_queued_for_deletion():
+			death.emit(coord)
+			queue_free()
 
 
 func _on_collision_area_body_entered(_body: Node2D) -> void:
@@ -36,3 +40,6 @@ func _on_collision_area_body_entered(_body: Node2D) -> void:
 
 func damage():
 	res.damage()
+	if res.death_count >= res.death_max and not is_queued_for_deletion():
+		death.emit(coord)  
+		queue_free() 
