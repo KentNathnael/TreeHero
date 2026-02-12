@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var direction: Vector2
 var last_direction: Vector2
+@export var run_multiplier := 1.8
 var speed := 50
 var can_move: bool = true
 @onready var move_state_machine = $Animation/AnimationTree.get("parameters/MoveStateMachine/playback")
@@ -114,7 +115,12 @@ func get_shopping_input():
 
 func move():
 	direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * speed
+	
+	var current_speed = speed
+	if Input.is_action_pressed("run") and can_move:
+		current_speed *= run_multiplier
+	
+	velocity = direction * current_speed
 	move_and_slide()
 
 

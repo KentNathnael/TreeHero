@@ -103,7 +103,7 @@ func _ready() -> void:
 	Data.forecast_rain = [true, false].pick_random()
 	for character in get_tree().get_nodes_in_group('Characters'):
 		character.connect('open_shop', open_shop)
-
+	
 
 func _process(_delta: float) -> void:
 	var daytime_point = 1 - ($Timers/DayTimer.time_left / $Timers/DayTimer.wait_time)

@@ -59,12 +59,13 @@ anim_speed_max = 2.0
 texture = ExtResource("2_c3o0d")
 0:0/0 = 0
 0:0/0/terrain_set = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 8, -8, 8, -8, -8, 4, -8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -6, 4, -6, 4, 8, -8, 8)
 0:0/0/terrains_peering_bit/right_side = 0
 0:0/0/terrains_peering_bit/bottom_right_corner = 0
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -6, -8, -6)
 1:0/0/terrains_peering_bit/right_side = 0
 1:0/0/terrains_peering_bit/bottom_right_corner = 0
 1:0/0/terrains_peering_bit/bottom_side = 0
@@ -72,7 +73,7 @@ texture = ExtResource("2_c3o0d")
 1:0/0/terrains_peering_bit/left_side = 0
 2:0/0 = 0
 2:0/0/terrain_set = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -8, 8, -8, 8, 8, -4, 8)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, -6, -4, -6, -4, 8, 8, 8)
 2:0/0/terrains_peering_bit/bottom_left_corner = 0
 2:0/0/terrains_peering_bit/left_side = 0
 3:0/0 = 0
@@ -1361,11 +1362,10 @@ script = ExtResource("1_urvlt")
 daytime_color = SubResource("Gradient_ouxo3")
 rain_color = Color(0.8156863, 0.8156863, 0.8156863, 1)
 volume_curve = SubResource("Curve_4ab0e")
-metadata/_edit_horizontal_guides_ = [-24.0, 843.0, 843.0]
-metadata/_edit_vertical_guides_ = [1176.0]
+metadata/_edit_horizontal_guides_ = [-24.0, 843.0, 843.0, -20.0, 3.0]
+metadata/_edit_vertical_guides_ = [1176.0, -16.0]
 
 [node name="Overlay" type="Node2D" parent="."]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="DayTimeColor" type="CanvasModulate" parent="Overlay"]
@@ -1402,7 +1402,6 @@ position = Vector2(332, 412)
 emitting = false
 amount = 255
 texture = ExtResource("12_xfk5q")
-visibility_rect = Rect2(-255, -255, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_8iyoh")
 
 [node name="MachinePreviewSprite" type="Sprite2D" parent="Overlay"]
@@ -1575,36 +1574,39 @@ fin_dialog = "Well done! :)"
 texture = ExtResource("13_qhnmj")
 
 [node name="PermaObject" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(248, 636)
+size = 3
+style = 0
 
 [node name="PermaObject2" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-145, 109)
-size = 2
+size = 1
 style = 0
 
 [node name="PermaObject3" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-97, 139)
 size = 2
+style = 0
 
 [node name="PermaObject4" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-80, 78)
-style = 0
+size = 3
 
 [node name="PermaObject5" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(42, 748)
-style = 0
 
 [node name="PermaObject6" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(193, 626)
 size = 1
-style = 0
 
 [node name="PermaObject7" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(133, 800)
 size = 3
+style = 0
 
 [node name="PermaObject8" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(209, 730)
@@ -1612,7 +1614,8 @@ position = Vector2(209, 730)
 [node name="PermaObject9" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-175, 214)
-size = 2
+size = 3
+style = 0
 
 [node name="PermaObject10" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
@@ -1621,58 +1624,58 @@ size = 2
 style = 0
 
 [node name="PermaObject11" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-29, 199)
-size = 3
+size = 1
+style = 0
 
 [node name="PermaObject12" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-60, 483)
 size = 1
 
 [node name="PermaObject13" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-15, 491)
+size = 2
+style = 0
 
 [node name="PermaObject14" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-51, 599)
 size = 1
-style = 0
 
 [node name="PermaObject15" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-102, 444)
-size = 2
+size = 3
 
 [node name="PermaObject16" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-167, 499)
-size = 3
 style = 0
 
 [node name="PermaObject17" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(115, 517)
-size = 1
+size = 2
 style = 0
 
 [node name="PermaObject18" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-105, 631)
 size = 1
+style = 0
 
 [node name="PermaObject19" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-6, 651)
-size = 3
 style = 0
 
 [node name="PermaObject20" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(469, 81)
-size = 3
-style = 0
+size = 2
 
 [node name="PermaObject21" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(461, 139)
 size = 3
+style = 0
 
 [node name="PermaObject22" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
@@ -1680,52 +1683,46 @@ position = Vector2(487, 184)
 size = 3
 
 [node name="PermaObject23" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(338, 62)
-size = 3
 style = 0
 
 [node name="PermaObject24" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(688, 220)
+size = 1
 style = 0
 
 [node name="PermaObject25" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(147, 202)
-size = 2
+size = 1
 
 [node name="PermaObject26" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-131, 539)
-size = 2
+size = 1
 
 [node name="PermaObject27" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(628, 57)
-size = 2
 style = 0
 
 [node name="PermaObject28" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(512, 220)
-size = 2
+size = 1
 style = 0
 
 [node name="PermaObject29" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(642, 247)
-size = 2
+size = 1
 style = 0
 
 [node name="PermaObject30" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(542, 271)
-size = 3
+size = 2
+style = 0
 
 [node name="Timers" type="Node" parent="."]
 
 [node name="DayTimer" type="Timer" parent="Timers"]
-wait_time = 180.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 
@@ -1767,7 +1764,7 @@ position = Vector2(246, 482)
 position = Vector2(296, 203)
 
 [node name="Marker2D11" type="Marker2D" parent="BlobSpawnPositions"]
-position = Vector2(581, 185)
+position = Vector2(454, 208)
 
 [node name="Music" type="Node" parent="."]
 
