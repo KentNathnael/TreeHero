@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dkaf0otbgtrp5"]
+[gd_scene load_steps=44 format=4 uid="uid://dkaf0otbgtrp5"]
 
 [ext_resource type="Texture2D" uid="uid://b1cmu3aai85qc" path="res://graphics/tilesets/grass.png" id="1_bovvr"]
 [ext_resource type="Script" uid="uid://crdbsib38ohef" path="res://scenes/levels/level.gd" id="1_urvlt"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://fnmyohadow27" path="res://graphics/icons/delete.png" id="18_qhnmj"]
 [ext_resource type="AudioStream" uid="uid://cmmksm2j2lpov" path="res://audio/music.mp3" id="20_4ab0e"]
 [ext_resource type="AudioStream" uid="uid://cpi4s4v86b026" path="res://audio/rain.mp3" id="21_p62il"]
+[ext_resource type="PackedScene" uid="uid://76ii17vhou8o" path="res://pause_menu.tscn" id="24_c8ctg"]
 
 [sub_resource type="Gradient" id="Gradient_ouxo3"]
 offsets = PackedFloat32Array(0, 0.294849, 0.4777975, 1)
@@ -1576,46 +1577,46 @@ texture = ExtResource("13_qhnmj")
 [node name="PermaObject" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(248, 636)
-size = 3
+size = 2
 style = 0
 
 [node name="PermaObject2" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-145, 109)
 size = 1
-style = 0
 
 [node name="PermaObject3" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-97, 139)
 size = 2
-style = 0
 
 [node name="PermaObject4" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-80, 78)
-size = 3
-
-[node name="PermaObject5" parent="Objects" instance=ExtResource("8_ouxo3")]
-position = Vector2(42, 748)
-
-[node name="PermaObject6" parent="Objects" instance=ExtResource("8_ouxo3")]
-position = Vector2(193, 626)
 size = 1
 
-[node name="PermaObject7" parent="Objects" instance=ExtResource("8_ouxo3")]
+[node name="PermaObject5" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
-position = Vector2(133, 800)
+position = Vector2(42, 748)
+size = 2
+
+[node name="PermaObject6" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
+position = Vector2(193, 626)
 size = 3
 style = 0
 
+[node name="PermaObject7" parent="Objects" instance=ExtResource("8_ouxo3")]
+position = Vector2(133, 800)
+
 [node name="PermaObject8" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(209, 730)
+size = 2
+style = 0
 
 [node name="PermaObject9" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-175, 214)
-size = 3
-style = 0
+size = 2
 
 [node name="PermaObject10" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
@@ -1624,46 +1625,53 @@ size = 2
 style = 0
 
 [node name="PermaObject11" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-29, 199)
-size = 1
+size = 2
 style = 0
 
 [node name="PermaObject12" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-60, 483)
-size = 1
+size = 3
 
 [node name="PermaObject13" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-15, 491)
-size = 2
+size = 3
 style = 0
 
 [node name="PermaObject14" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-51, 599)
-size = 1
+size = 2
+style = 0
 
 [node name="PermaObject15" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-102, 444)
-size = 3
-
-[node name="PermaObject16" parent="Objects" instance=ExtResource("8_ouxo3")]
-position = Vector2(-167, 499)
-style = 0
-
-[node name="PermaObject17" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
-position = Vector2(115, 517)
 size = 2
 style = 0
 
-[node name="PermaObject18" parent="Objects" instance=ExtResource("8_ouxo3")]
-position = Vector2(-105, 631)
+[node name="PermaObject16" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
+position = Vector2(-167, 499)
+size = 2
+
+[node name="PermaObject17" parent="Objects" instance=ExtResource("8_ouxo3")]
+position = Vector2(115, 517)
 size = 1
+style = 0
+
+[node name="PermaObject18" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
+position = Vector2(-105, 631)
+size = 3
 style = 0
 
 [node name="PermaObject19" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-6, 651)
+size = 1
 style = 0
 
 [node name="PermaObject20" parent="Objects" instance=ExtResource("8_ouxo3")]
@@ -1680,20 +1688,22 @@ style = 0
 [node name="PermaObject22" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(487, 184)
-size = 3
+size = 2
 
 [node name="PermaObject23" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(338, 62)
+size = 2
 style = 0
 
 [node name="PermaObject24" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(688, 220)
 size = 1
-style = 0
 
 [node name="PermaObject25" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(147, 202)
 size = 1
+style = 0
 
 [node name="PermaObject26" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-131, 539)
@@ -1701,11 +1711,13 @@ size = 1
 
 [node name="PermaObject27" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(628, 57)
+size = 1
 style = 0
 
 [node name="PermaObject28" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(512, 220)
-size = 1
+size = 2
 style = 0
 
 [node name="PermaObject29" parent="Objects" instance=ExtResource("8_ouxo3")]
@@ -1714,9 +1726,7 @@ size = 1
 style = 0
 
 [node name="PermaObject30" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(542, 271)
-size = 2
 style = 0
 
 [node name="Timers" type="Node" parent="."]
@@ -1775,6 +1785,9 @@ volume_db = -10.0
 [node name="Rain" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("21_p62il")
 volume_db = -20.0
+
+[node name="Node2D" parent="." instance=ExtResource("24_c8ctg")]
+scale = Vector2(1e-05, 1e-05)
 
 [connection signal="close" from="Overlay/CanvasLayer/ShopUI" to="." method="_on_player_close_shop"]
 [connection signal="build" from="Objects/Player" to="." method="_on_player_build"]
