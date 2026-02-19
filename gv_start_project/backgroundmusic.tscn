@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://q0ef075in0va"]
+
+[ext_resource type="AudioStream" uid="uid://bx75q2df0bb26" path="res://audio/Morning Fields Theme.mp3" id="1_2bmh7"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_2bmh7")
+autoplay = true

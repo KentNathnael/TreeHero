@@ -12,7 +12,6 @@ grow_vertical = 2
 script = ExtResource("1_ygcrn")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25

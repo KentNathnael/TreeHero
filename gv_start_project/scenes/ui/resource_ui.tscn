@@ -14,6 +14,7 @@ theme = ExtResource("1_vmyg7")
 script = ExtResource("1_iahqc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 30)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bajvdlq882klr"]
+
+[ext_resource type="AudioStream" uid="uid://cbobclxrl32em" path="res://audio/Water lake sound effecthigh quality.mp3" id="1_6kq7n"]
+
+[node name="Sungai" type="AudioStreamPlayer2D"]
+position = Vector2(186, 75)
+stream = ExtResource("1_6kq7n")
+autoplay = true

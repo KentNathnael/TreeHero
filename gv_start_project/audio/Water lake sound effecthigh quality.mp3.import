@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbobclxrl32em"
+path="res://.godot/imported/Water lake sound effecthigh quality.mp3-e724c3cb8b38c998f5b87c2ea96a1243.mp3str"
+
+[deps]
+
+source_file="res://audio/Water lake sound effecthigh quality.mp3"
+dest_files=["res://.godot/imported/Water lake sound effecthigh quality.mp3-e724c3cb8b38c998f5b87c2ea96a1243.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

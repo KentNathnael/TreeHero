@@ -5,8 +5,8 @@
 [ext_resource type="Shader" uid="uid://b6nm5dtkeitqy" path="res://shaders/flash.tres" id="3_0a33w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvfks"]
-radius = 3.0
-height = 6.0
+radius = 2.0
+height = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fvfks"]
 

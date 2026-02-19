@@ -19,6 +19,5 @@ func _ready() -> void:
 func _on_house_area_body_entered(_body: Node2D) -> void:
 	in_house = true
 
-
 func _on_house_area_body_exited(_body: Node2D) -> void:
 	in_house = false

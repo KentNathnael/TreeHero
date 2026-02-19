@@ -1,4 +1,6 @@
 extends CharacterBody2D
+#
+class_name Player
 
 var direction: Vector2
 var last_direction: Vector2

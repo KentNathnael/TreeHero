@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bnw1luiuyyree" path="res://pause_menu.gd" id="1_hdmo1"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(17, 1359)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 1
@@ -13,8 +14,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 1359.0
+offset_right = 17.0
+offset_bottom = 1359.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu/Control"]
 layout_mode = 1
@@ -24,6 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.019607844, 0.019607844, 0.019607844, 0.60784316)
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="PauseMenu/Control"]
 layout_mode = 1
@@ -40,3 +47,4 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 34
 text = "Resume"
+metadata/_edit_use_anchors_ = true
