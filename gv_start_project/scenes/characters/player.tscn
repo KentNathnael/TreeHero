@@ -1590,6 +1590,7 @@ limit_left = -24
 limit_top = -20
 limit_right = 1176
 limit_bottom = 843
+position_smoothing_enabled = true
 
 [node name="ToolUI" parent="." instance=ExtResource("3_76oj4")]
 

@@ -1,12 +1,28 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbw680sqhicls"]
 
-[ext_resource type="Script" uid="uid://dxeacq26t0nea" path="res://scenes/elements/door.gd" id="1_2xcpy"]
+[sub_resource type="GDScript" id="GDScript_g0q41"]
+script/source = "extends Area2D
+
+class_name Door
+
+@export var destination_level_tag: String
+@export var destination_door_tag: String
+@export var spawn_direction: String = \"up\"
+
+@onready var Spawn = $Spawn
+
+
+
+func _on_body_entered(body):
+	if body is Player:
+		pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e708x"]
 size = Vector2(20, 35)
 
 [node name="Door" type="Area2D"]
-script = ExtResource("1_2xcpy")
+script = SubResource("GDScript_g0q41")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e708x")
