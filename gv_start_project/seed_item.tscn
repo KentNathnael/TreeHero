@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://5ie0xxvuluun"]
+
+[ext_resource type="Script" uid="uid://cc10mgw4fw5e7" path="res://seed_item.gd" id="1_sliw7"]
+[ext_resource type="Texture2D" uid="uid://dlh3xrk6a5cu" path="res://graphics/icons/tomato.png" id="2_4eteu"]
+[ext_resource type="AudioStream" uid="uid://cx46eb4dmcgl6" path="res://audio/Collect Item Sound Effect.mp3" id="3_56vr2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56vr2"]
+radius = 4.0
+
+[node name="seed_item" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_sliw7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.3841858e-07, -2.3841858e-07)
+scale = Vector2(0.5714286, 0.5714286)
+texture = ExtResource("2_4eteu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_56vr2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_56vr2")

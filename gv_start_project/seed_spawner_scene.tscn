@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw7qcjwo1q5gq"]
+
+[ext_resource type="Script" uid="uid://bqpk32gwmulkl" path="res://seed_spawner_scene.gd" id="1_66edp"]
+
+[node name="SeedSpawnerScene" type="Node2D"]
+script = ExtResource("1_66edp")
+
+[node name="SeedMarkers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SeedMarkers"]
+position = Vector2(-598, 238)
+metadata/Spawn_id = "S1"
+metadata/type = "SEED"
+metadata/seed_type = 0
+
+[node name="Marker2D2" type="Marker2D" parent="SeedMarkers"]
+
+[node name="Marker2D3" type="Marker2D" parent="SeedMarkers"]
+
+[node name="Marker2D4" type="Marker2D" parent="SeedMarkers"]
+
+[node name="SeedHolder" type="Node2D" parent="."]
