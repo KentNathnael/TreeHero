@@ -16,13 +16,22 @@ var dead: bool:
 var reward: Enum.Item
 
 func setup(seed_enum: Enum.Seed, reward_item: Enum.Item):
-	texture = load(Data.PLANT_DATA[seed_enum]['texture'])
-	icon_texture = load(Data.PLANT_DATA[seed_enum]['icon_texture'])
-	grow_speed = Data.PLANT_DATA[seed_enum]['grow_speed']
-	h_frames = Data.PLANT_DATA[seed_enum]['h_frames']
-	death_max = Data.PLANT_DATA[seed_enum]['death_max']
-	name = Data.PLANT_DATA[seed_enum]['name']
+	# Ambil data dari Data.PLANT_DATA (Singleton kamu)
+	var data = Data.PLANT_DATA[seed_enum]
+	
+	texture = load(data['texture'])
+	icon_texture = load(data['icon_texture'])
+	grow_speed = data['grow_speed']
+	h_frames = data['h_frames']
+	death_max = data['death_max']
+	name = data['name']
 	reward = reward_item
+	
+	# --- LOGIKA NGURANGIN STOK PAS NANAM ---
+	# Kita kurangi item yang sesuai dengan tipe hadiahnya (misal: Tomato item)
+	# auto_hide = false supaya UI resource tetap kelihatan pas angkanya berkurang
+	Data.change_item(reward, -1, false) 
+	print("Menanam ", name, ". Stok berkurang 1.")
 
 
 func grow(sprite: Sprite2D):

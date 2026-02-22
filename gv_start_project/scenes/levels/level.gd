@@ -36,10 +36,17 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 	match tool:
 		Enum.Tool.HOE:
 			var cell = $Layers/GrassLayer.get_cell_tile_data(grid_coord) as TileData
+			
+			# Tambahkan pengecekan: Jika tile ada DAN farmable-nya TRUE
 			if cell and cell.get_custom_data('farmable'):
 				$Layers/SoilLayer.set_cells_terrain_connect([grid_coord], 0, 0)
-			if raining:
-				$Layers/SoilWaterLayer.set_cell(grid_coord, 0, Vector2i(randi_range(0,2),0))
+				if soil_age.has(grid_coord):
+					soil_age.erase(grid_coord)
+				if raining:
+					$Layers/SoilWaterLayer.set_cell(grid_coord, 0, Vector2i(randi_range(0,2),0))
+			else:
+				# Jika itu Path, Hill, atau Air yang farmable-nya FALSE
+				print("Tanahnya terlalu keras atau ini jalanan!")
 		Enum.Tool.WATER:
 			if has_soil:
 				$Layers/SoilWaterLayer.set_cell(grid_coord, 0, Vector2i(randi_range(0,2),0))
@@ -116,16 +123,45 @@ func _process(_delta: float) -> void:
 	$Overlay/MachinePreviewSprite.position = player.get_machine_coord() + MACHINE_PREVIEW_TEXTURES[player.current_machine]['offset']
 
 func day_restart():
+	# 1. Kunci pergerakan player
+	player.current_state = Enum.State.SHOP 
+	
+	# 2. Paksa player ke keadaan Idle (memanggil fungsi di script player)
+	if player.has_method("set_idle"):
+		player.set_idle()
+	
 	var tween = create_tween()
+	# Animasi layar hitam
 	tween.tween_property(day_transition_material, "shader_parameter/progress", 1.0, 1.0)
 	tween.tween_interval(0.5)
+	
 	tween.tween_callback(level_reset)
+	
+	# Animasi layar terang
 	tween.tween_property(day_transition_material, "shader_parameter/progress", 0.0, 1.0)
+	
+	# Kembalikan kontrol setelah selesai
+	tween.tween_callback(func(): player.current_state = Enum.State.DEFAULT)
 
+var soil_age: Dictionary = {} # Tambahkan ini saja
 
 func level_reset():
 	for plant in get_tree().get_nodes_in_group('Plants'):
 		plant.grow(plant.coord in $Layers/SoilWaterLayer.get_used_cells())
+	
+	### LOGIKA BARU: Tanah jadi Grass ###
+	var all_soil = $Layers/SoilLayer.get_used_cells()
+	for cell in all_soil:
+		if not cell in used_cells:
+			soil_age[cell] = soil_age.get(cell, 0) + 1
+			if soil_age[cell] >= 3:
+				$Layers/SoilLayer.set_cells_terrain_connect([cell], 0, -1)
+				$Layers/SoilWaterLayer.set_cell(cell, -1)
+				soil_age.erase(cell)
+		else:
+			soil_age.erase(cell) # Reset jika ada tanaman
+	####################################
+
 	$Layers/SoilWaterLayer.clear()
 	$Overlay/CanvasLayer/PlantInfoContainer.update_all()
 	
@@ -134,6 +170,7 @@ func level_reset():
 		if 'reset' in object:
 			object.reset()
 
+	# Pindahkan 'raining = Data.forecast_rain' ke sini agar urutannya pas
 	raining = Data.forecast_rain
 	Data.forecast_rain = [true, false].pick_random()
 	
