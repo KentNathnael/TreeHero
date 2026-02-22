@@ -119,3 +119,4 @@ libraries = {
 autoplay = "move"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"

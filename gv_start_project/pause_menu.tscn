@@ -68,11 +68,10 @@ draw_center = false
 
 [node name="Node2D" type="Node2D"]
 process_mode = 2
-position = Vector2(17, 1359)
+position = Vector2(1, 1)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
-visible = false
 offset = Vector2(289, 0)
 transform = Transform2D(1, 0, 0, 1, 289, 0)
 script = ExtResource("1_hdmo1")
@@ -95,6 +94,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -11.0
+offset_right = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -108,10 +109,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -197.5
-offset_top = -386.0
-offset_right = 200.0
-offset_bottom = -111.5
+offset_left = -219.5
+offset_top = -369.0
+offset_right = 178.0
+offset_bottom = -94.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 34
@@ -128,10 +129,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -197.5
-offset_top = 79.0
-offset_right = 200.0
-offset_bottom = 353.5
+offset_left = -219.5
+offset_top = -26.0
+offset_right = 178.0
+offset_bottom = 248.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 34
@@ -140,6 +141,45 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mxa3g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hdmo1")
 theme_override_styles/focus = SubResource("StyleBoxFlat_e8sti")
 text = "To Main Menu"
+
+[node name="LabelMusic" type="Label" parent="PauseMenu/Control"]
+layout_mode = 0
+offset_left = 950.0
+offset_top = 842.0
+offset_right = 996.0
+offset_bottom = 891.0
+text = "Music
+"
+
+[node name="MusicSlider" type="HSlider" parent="PauseMenu/Control"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 771.0
+offset_top = 863.0
+offset_right = 1171.0
+offset_bottom = 879.0
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="LabelSFX" type="Label" parent="PauseMenu/Control"]
+layout_mode = 0
+offset_left = 926.0
+offset_top = 892.0
+offset_right = 1024.0
+offset_bottom = 941.0
+text = "Sound Effect"
+
+[node name="SFXSlider" type="HSlider" parent="PauseMenu/Control"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 772.0
+offset_top = 912.0
+offset_right = 1172.0
+offset_bottom = 928.0
+max_value = 1.0
+step = 0.05
+value = 0.8
 
 [connection signal="pressed" from="PauseMenu/Control/Resume" to="PauseMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Control/ToMainMenu" to="PauseMenu" method="_on_to_main_menu_pressed"]
