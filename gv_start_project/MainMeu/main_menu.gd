@@ -7,7 +7,7 @@ func _on_start_but_pressed() -> void:
 
 
 func _on_option_pressed() -> void:
-	print('option')
+	get_tree().change_scene_to_file("res://Option_Tutorial/tutorial.tscn")
 
 
 func _on_exit_pressed() -> void:

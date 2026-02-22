@@ -95,7 +95,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_mkj37")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_c7waj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bnhmy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_c7waj")
-text = "Option
+text = "Tutorial
 "
 
 [node name="Start_but3" type="Button" parent="HBoxContainer"]

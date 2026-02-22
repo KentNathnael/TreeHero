@@ -18,6 +18,7 @@ func _ready() -> void:
 		$HBoxContainer.add_child(resource_texture)
 
 
+
 func reveal(auto_hide: bool = true):
 	for i in $HBoxContainer.get_children():
 		i.update()
