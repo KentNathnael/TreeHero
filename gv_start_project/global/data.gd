@@ -110,7 +110,7 @@ var items = {
 	Enum.Item.FISH: 0,
 	Enum.Item.CORN: 0,
 	Enum.Item.WHEAT: 0,
-	Enum.Item.PUMPKIN: 0,
+	Enum.Item.PUMPKIN: 50,
 	Enum.Item.TOMATO: 0}
 
 func change_item(item: Enum.Item, amount: int = 1, auto_hide: bool = true):

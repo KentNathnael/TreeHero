@@ -72,6 +72,7 @@ position = Vector2(1, 1)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
+visible = false
 offset = Vector2(289, 0)
 transform = Transform2D(1, 0, 0, 1, 289, 0)
 script = ExtResource("1_hdmo1")
