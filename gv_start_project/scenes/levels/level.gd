@@ -9,12 +9,15 @@ var machine_scenes = {
 	Enum.Machine.SCARECROW: preload("res://scenes/machines/scare_crow.tscn"),
 	Enum.Machine.FISHER: preload("res://scenes/machines/fisher.tscn")}
 var used_cells: Array[Vector2i]
+var soil_age: Dictionary = {} 
+
 var raining: bool:
 	set(value):
 		raining = value
 		$Layers/RainFloorParticles.emitting = value
 		$Overlay/RainDropsParticles.emitting = value
 		$Music/Rain.playing = value
+
 @onready var player = $Objects/Player
 @onready var day_transition_material = $Overlay/CanvasLayer/DayTransitionLayer.material
 @export var daytime_color: Gradient
@@ -29,15 +32,14 @@ const MACHINE_PREVIEW_TEXTURES = {
 
 
 func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
-	var grid_coord: Vector2i = Vector2i(int(pos.x / Data.TILE_SIZE),int(pos.y / Data.TILE_SIZE))
+	var grid_coord: Vector2i = Vector2i(int(pos.x / Data.TILE_SIZE), int(pos.y / Data.TILE_SIZE))
 	grid_coord.x += -1 if pos.x < 0 else 0
 	grid_coord.y += -1 if pos.y < 0 else 0
 	var has_soil = grid_coord in $Layers/SoilLayer.get_used_cells()
+	
 	match tool:
 		Enum.Tool.HOE:
 			var cell = $Layers/GrassLayer.get_cell_tile_data(grid_coord) as TileData
-			
-			# Tambahkan pengecekan: Jika tile ada DAN farmable-nya TRUE
 			if cell and cell.get_custom_data('farmable'):
 				$Layers/SoilLayer.set_cells_terrain_connect([grid_coord], 0, 0)
 				if soil_age.has(grid_coord):
@@ -45,14 +47,16 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 				if raining:
 					$Layers/SoilWaterLayer.set_cell(grid_coord, 0, Vector2i(randi_range(0,2),0))
 			else:
-				# Jika itu Path, Hill, atau Air yang farmable-nya FALSE
 				print("Tanahnya terlalu keras atau ini jalanan!")
+				
 		Enum.Tool.WATER:
 			if has_soil:
 				$Layers/SoilWaterLayer.set_cell(grid_coord, 0, Vector2i(randi_range(0,2),0))
+				
 		Enum.Tool.FISH:
 			if not grid_coord in $Layers/GrassLayer.get_used_cells():
 				$Objects/Player.start_fishing()
+				
 		Enum.Tool.SEED:
 			if has_soil and grid_coord not in used_cells:
 				var selected_item = {
@@ -63,7 +67,6 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 				}[player.current_seed]
 				
 				if Data.items[selected_item] > 0:
-					#Data.change_item(selected_item, -1)
 					var plant_res = PlantResource.new()
 					plant_res.setup($Objects/Player.current_seed, selected_item)
 					var plant = plant_scene.instantiate()
@@ -79,14 +82,11 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 				if object.position.distance_to(pos) < 20:
 					object.hit(tool)
 
-
 func _on_player_diagnose() -> void:
 	$Overlay/CanvasLayer/PlantInfoContainer.visible = not $Overlay/CanvasLayer/PlantInfoContainer.visible
 
-
 func _on_player_day_change() -> void:
 	day_restart()
-
 
 func _on_player_build(current_machine: int) -> void:
 	if current_machine != Enum.Machine.DELETE:
@@ -96,60 +96,45 @@ func _on_player_build(current_machine: int) -> void:
 		for machine in get_tree().get_nodes_in_group('Machines'):
 			machine.delete(player.get_machine_coord() / 16)
 
-
 func _on_player_machine_change(current_machine: int) -> void:
 	$Overlay/MachinePreviewSprite.texture = MACHINE_PREVIEW_TEXTURES[current_machine]['texture']
-
 
 func _on_player_close_shop() -> void:
 	$Overlay/CanvasLayer/ShopUI.hide()
 	player.current_state = Enum.State.DEFAULT
 
-
 func _ready() -> void:
 	Data.forecast_rain = [true, false].pick_random()
 	for character in get_tree().get_nodes_in_group('Characters'):
 		character.connect('open_shop', open_shop)
-	
 
 func _process(_delta: float) -> void:
 	var daytime_point = 1 - ($Timers/DayTimer.time_left / $Timers/DayTimer.wait_time)
 	var color = daytime_color.sample(daytime_point).lerp(rain_color, 0.5 if raining else 0.0)
-	$Music/BGMusic.volume_db = volume_curve.sample(daytime_point)
+	#$Music/BGMusic.volume_db = volume_curve.sample(daytime_point)
 	$Overlay/DayTimeColor.color = color
 	
-	# machine preview 
 	$Overlay/MachinePreviewSprite.visible = player.current_state == Enum.State.BUILDING
-	$Overlay/MachinePreviewSprite.position = player.get_machine_coord() + MACHINE_PREVIEW_TEXTURES[player.current_machine]['offset']
+	if $Overlay/MachinePreviewSprite.visible:
+		$Overlay/MachinePreviewSprite.position = player.get_machine_coord() + MACHINE_PREVIEW_TEXTURES[player.current_machine]['offset']
 
 func day_restart():
-	# 1. Kunci pergerakan player
 	player.current_state = Enum.State.SHOP 
 	
-	# 2. Paksa player ke keadaan Idle (memanggil fungsi di script player)
 	if player.has_method("set_idle"):
 		player.set_idle()
 	
 	var tween = create_tween()
-	# Animasi layar hitam
 	tween.tween_property(day_transition_material, "shader_parameter/progress", 1.0, 1.0)
 	tween.tween_interval(0.5)
-	
 	tween.tween_callback(level_reset)
-	
-	# Animasi layar terang
 	tween.tween_property(day_transition_material, "shader_parameter/progress", 0.0, 1.0)
-	
-	# Kembalikan kontrol setelah selesai
 	tween.tween_callback(func(): player.current_state = Enum.State.DEFAULT)
-
-var soil_age: Dictionary = {} # Tambahkan ini saja
 
 func level_reset():
 	for plant in get_tree().get_nodes_in_group('Plants'):
 		plant.grow(plant.coord in $Layers/SoilWaterLayer.get_used_cells())
 	
-	### LOGIKA BARU: Tanah jadi Grass ###
 	var all_soil = $Layers/SoilLayer.get_used_cells()
 	for cell in all_soil:
 		if not cell in used_cells:
@@ -159,8 +144,7 @@ func level_reset():
 				$Layers/SoilWaterLayer.set_cell(cell, -1)
 				soil_age.erase(cell)
 		else:
-			soil_age.erase(cell) # Reset jika ada tanaman
-	####################################
+			soil_age.erase(cell)
 
 	$Layers/SoilWaterLayer.clear()
 	$Overlay/CanvasLayer/PlantInfoContainer.update_all()
@@ -170,7 +154,6 @@ func level_reset():
 		if 'reset' in object:
 			object.reset()
 
-	# Pindahkan 'raining = Data.forecast_rain' ke sini agar urutannya pas
 	raining = Data.forecast_rain
 	Data.forecast_rain = [true, false].pick_random()
 	
@@ -178,35 +161,33 @@ func level_reset():
 		for cell in $Layers/SoilLayer.get_used_cells():
 			$Layers/SoilWaterLayer.set_cell(cell, 0, Vector2i(randi_range(0,2),0))
 
-
 func plant_death(coord: Vector2i):
-	used_cells.erase(coord)
-
+	if coord in used_cells:
+		used_cells.erase(coord)
 
 func create_projectile(start_pos: Vector2, dir: Vector2):
 	var projectile = projectile_scene.instantiate()
 	projectile.setup(start_pos, dir)
 	$Objects.add_child(projectile)
 
-
 func water_plants(coord: Vector2i):
 	const SOIL_DIRECTIONS = [
 		Vector2i(-1, -1), Vector2i(0, -1), Vector2i(1, -1),
-		Vector2i(-1,  0),Vector2i(1,0), Vector2i(-1,  1), 
-		Vector2i(0,  1), Vector2i(1,  1)]
+		Vector2i(-1, 0), Vector2i(1, 0), Vector2i(-1, 1), 
+		Vector2i(0, 1), Vector2i(1, 1)]
 	for dir in SOIL_DIRECTIONS:
 		var cell = coord + dir
 		if cell in $Layers/SoilLayer.get_used_cells():
 			$Layers/SoilWaterLayer.set_cell(cell, 0, Vector2i(randi_range(0,2),0))
 
-
 func _on_blob_timer_timeout() -> void:
 	var plants = get_tree().get_nodes_in_group('Plants')
 	if plants:
 		var blob = blob_scene.instantiate()
-		var pos = $BlobSpawnPositions.get_children().pick_random().position
-		blob.setup(pos, plants.pick_random(), $Objects)
-
+		var spawn_points = $BlobSpawnPositions.get_children()
+		if spawn_points.size() > 0:
+			var pos = spawn_points.pick_random().position
+			blob.setup(pos, plants.pick_random(), $Objects)
 
 func open_shop(shop_type: Enum.Shop):
 	$Overlay/CanvasLayer/ShopUI.reveal(shop_type)
