@@ -105,13 +105,13 @@ var shop_connection = {
 	Enum.Shop.MAIN: {'tracker': unlocked_machines, 'all': MACHINE_UPGRADE_COST.keys()},
 }
 var items = {
-	Enum.Item.WOOD: 0,
-	Enum.Item.APPLE: 0,
-	Enum.Item.FISH: 0,
-	Enum.Item.CORN: 0,
-	Enum.Item.WHEAT: 0,
+	Enum.Item.WOOD: 50,
+	Enum.Item.APPLE: 50,
+	Enum.Item.FISH: 50,
+	Enum.Item.CORN: 50,
+	Enum.Item.WHEAT: 50,
 	Enum.Item.PUMPKIN: 50,
-	Enum.Item.TOMATO: 0}
+	Enum.Item.TOMATO: 50}
 
 func change_item(item: Enum.Item, amount: int = 1, auto_hide: bool = true):
 	items[item] += amount
