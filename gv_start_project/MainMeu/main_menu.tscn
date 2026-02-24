@@ -1,35 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://v10hj1fec447"]
+[gd_scene load_steps=6 format=3 uid="uid://v10hj1fec447"]
 
 [ext_resource type="Texture2D" uid="uid://bjtjls82n0bw6" path="res://graphics/MainMenu/MainMenu.png" id="1_c7waj"]
 [ext_resource type="Script" uid="uid://co70k4gj78bnj" path="res://MainMeu/main_menu.gd" id="1_wfwck"]
-[ext_resource type="FontFile" uid="uid://pctatblkht3m" path="res://graphics/fonts/HomeVideo-Regular.ttf" id="2_bnhmy"]
+[ext_resource type="Texture2D" uid="uid://wuh4uciqb0am" path="res://ChatGPT Image Feb 24, 2026, 08_13_03 PM (1).png" id="4_f5hss"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnhmy"]
 texture = ExtResource("1_c7waj")
 modulate_color = Color(0.9166399, 0.91663986, 0.9166398, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkj37"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7waj"]
-bg_color = Color(0.7586802, 0.5577514, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnhmy"]
-bg_color = Color(0.9137255, 0.6745098, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7waj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfwck"]
+bg_color = Color(1, 0.8723575, 0.6555481, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -65,54 +45,83 @@ grow_vertical = 0
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Start_but" type="Button" parent="HBoxContainer"]
+[node name="Start_but" type="TextureButton" parent="HBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(260, 140)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_bnhmy")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_mkj37")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_c7waj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bnhmy")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_c7waj")
-text = "Start Game"
+texture_normal = ExtResource("4_f5hss")
+texture_pressed = ExtResource("4_f5hss")
+stretch_mode = 0
 
-[node name="Start_but2" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="Label" type="Label" parent="HBoxContainer/Start_but"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 26.0
+offset_right = -35.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_bnhmy")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_mkj37")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_c7waj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bnhmy")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_c7waj")
-text = "Tutorial
-"
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wfwck")
+text = "START GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Start_but3" type="Button" parent="HBoxContainer"]
+[node name="Start_but2" type="TextureButton" parent="HBoxContainer"]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
+texture_normal = ExtResource("4_f5hss")
+
+[node name="Label2" type="Label" parent="HBoxContainer/Start_but2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 26.0
+offset_right = -35.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_bnhmy")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_mkj37")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_c7waj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bnhmy")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_c7waj")
-text = "Exit"
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wfwck")
+text = "TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start_but3" type="TextureButton" parent="HBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_f5hss")
+
+[node name="Label" type="Label" parent="HBoxContainer/Start_but3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 26.0
+offset_right = -35.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wfwck")
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/Start_but" to="." method="_on_start_but_pressed"]
 [connection signal="pressed" from="HBoxContainer/Start_but2" to="." method="_on_option_pressed"]

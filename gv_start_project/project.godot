@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TreeHeroHampirFIX"
-run/main_scene="uid://dkaf0otbgtrp5"
+run/main_scene="uid://v10hj1fec447"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
