@@ -276,7 +276,8 @@ func apply_save_state(state: Dictionary) -> void:
 
 	# items
 	var saved_items: Dictionary = progress.get("items", {}) as Dictionary
-	Data.items = SaveManager.decode_items(saved_items)
+	var decoded := SaveManager.decode_items(saved_items)
+	Data.merge_items(decoded)
 
 	# rain
 	Data.forecast_rain = progress.get("forecast_rain", Data.forecast_rain)

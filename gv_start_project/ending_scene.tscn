@@ -1,10 +1,26 @@
-[gd_scene format=3 uid="uid://n33x8qffxddr"]
+[gd_scene load_steps=3 format=3 uid="uid://n33x8qffxddr"]
+
+[ext_resource type="Script" uid="uid://dec0uu27f3hqh" path="res://ending_scene.gd" id="1_4l4mv"]
+[ext_resource type="VideoStream" uid="uid://dc3n2q4g1p3w5" path="res://endingscene.ogv" id="1_wo5jl"]
 
 [node name="ending_scene" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4l4mv")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_wo5jl")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

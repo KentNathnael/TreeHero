@@ -82,6 +82,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("3_dxkve")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer"]

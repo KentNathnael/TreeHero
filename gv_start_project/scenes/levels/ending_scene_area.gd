@@ -17,19 +17,20 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		var total_panen = Data.items[Enum.Item.TOMATO] + \
-						  Data.items[Enum.Item.CORN] + \
-						  Data.items[Enum.Item.WHEAT] + \
-						  Data.items[Enum.Item.PUMPKIN]
+		#var total_panen = Data.items[Enum.Item.TOMATO] + \
+						  #Data.items[Enum.Item.CORN] + \
+						  #Data.items[Enum.Item.WHEAT] + \
+						  #Data.items[Enum.Item.PUMPKIN]
+		var total_coin = Data.items[Enum.Item.COIN]
 		
 		$CanvasLayer/VBoxContainer.show()
 		
-		if total_panen >= target_goal:
-			label_info.text = "Syarat Terpenuhi! (" + str(total_panen) + "/" + str(target_goal) + ")"
+		if total_coin >= target_goal:
+			label_info.text = "Syarat Terpenuhi! (" + str(total_coin) + "/" + str(target_goal) + ")"
 			btn_lanjutkan.show() # Tampilkan tombol klik
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Munculkan kursor mouse
 		else:
-			var sisa = target_goal - total_panen
+			var sisa = target_goal - total_coin
 			label_info.text = "Butuh " + str(sisa) + " hasil panen lagi untuk menyelesaikan permainan."
 			btn_lanjutkan.hide()
 
@@ -41,4 +42,4 @@ func _on_body_exited(body):
 
 func _on_lanjutkan_pressed():
 	# Ganti ke scene ending kamu
-	get_tree().change_scene_to_file("res://Ending/ending_scene.tscn")
+	get_tree().change_scene_to_file("res://ending_scene.tscn")

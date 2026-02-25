@@ -8,4 +8,4 @@ func setup(new_item_type: Enum.Item, new_texture: Texture2D):
 	update()
 
 func update():
-	$Label.text = str(Data.items[item_type])
+	$Label.text = str(Data.items.get(item_type, 0))

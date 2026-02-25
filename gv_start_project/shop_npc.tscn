@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsurw57xds4l3"]
+
+[ext_resource type="Texture2D" uid="uid://bpj4jnuaeopk7" path="res://graphics/characters/woman.png" id="2_iq160"]
+
+[sub_resource type="GDScript" id="GDScript_jsvi5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nsn8v"]
+radius = 6.0
+height = 16.0
+
+[node name="ShopNPC" type="CharacterBody2D"]
+collision_layer = 12
+collision_mask = 2
+script = SubResource("GDScript_jsvi5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(79, 22)
+texture = ExtResource("2_iq160")
+hframes = 4
+vframes = 6
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(79, 20)
+shape = SubResource("CapsuleShape2D_nsn8v")
+
+[node name="Label" type="Label" parent="."]
+offset_top = -6.0
+offset_right = 175.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 16
+text = "Come Buy Some Seeds"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 38.0
+offset_top = -7.0
+offset_right = 78.0
+offset_bottom = 33.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = -37.0
+offset_top = 7.0
+offset_right = 139.0
+offset_bottom = 85.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+clip_contents = true
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 47.0
+theme_override_constants/separation = 5
+
+[node name="ButtonWheat" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonTomato" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonPumpkin" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonCorn" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2

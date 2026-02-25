@@ -97,24 +97,71 @@ const TOOL_STATE_ANIMATIONS = {
 	Enum.Tool.SEED: 'Seed',
 	}
 
+const SEED_UPGRADES = {
+	Enum.Item.CORN: {
+		'name': 'Corn Seed',
+		'cost': {Enum.Item.COIN: 10},
+		'icon': preload("res://graphics/icons/corn.png"),
+		'color': Color.YELLOW},
+	Enum.Item.WHEAT: {
+		'name': 'Wheat Seed',
+		'cost': {Enum.Item.COIN: 8},
+		'icon': preload("res://graphics/icons/wheat.png"),
+		'color': Color.WHEAT},
+	Enum.Item.TOMATO: {
+		'name': 'Tomato Seed',
+		'cost': {Enum.Item.COIN: 12},
+		'icon': preload("res://graphics/icons/tomato.png"),
+		'color': Color.TOMATO},
+	Enum.Item.PUMPKIN: {
+		'name': 'Pumpkin Seed',
+		'cost': {Enum.Item.COIN: 15},
+		'icon': preload("res://graphics/icons/pumpkin.png"),
+		'color': Color.ORANGE}
+}
+
 var forecast_rain: bool
 var unlocked_styles: Array = [Enum.Style.BASIC, Enum.Style.ENGLISH]
 var unlocked_machines: Array = [Enum.Machine.DELETE, Enum.Machine.SPRINKLER, Enum.Machine.FISHER, Enum.Machine.SCARECROW]
+var unlocked_seeds: Array = [Enum.Item.CORN, Enum.Item.WHEAT] # Contoh bibit yang sudah terbuka
+
+# Di Data.gd
 var shop_connection = {
 	Enum.Shop.HAT: {'tracker': unlocked_styles, 'all': STYLE_UPGRADES.keys()},
 	Enum.Shop.MAIN: {'tracker': unlocked_machines, 'all': MACHINE_UPGRADE_COST.keys()},
+	Enum.Shop.SEEDS: {'tracker': unlocked_seeds, 'all': SEED_UPGRADES.keys()},
+	# Gunakan data yang sama dengan SEEDS tapi tracker yang berbeda atau kosong
+	Enum.Shop.SELL_SEEDS: {'tracker': [], 'all': SEED_UPGRADES.keys()}, 
 }
-var items = {
-	Enum.Item.WOOD: 50,
-	Enum.Item.APPLE: 50,
-	Enum.Item.FISH: 50,
-	Enum.Item.CORN: 50,
-	Enum.Item.WHEAT: 50,
-	Enum.Item.PUMPKIN: 50,
-	Enum.Item.TOMATO: 50}
-
+const DEFAULT_ITEMS := {
+	Enum.Item.WOOD: 0,
+	Enum.Item.APPLE: 0,
+	Enum.Item.FISH: 0,
+	Enum.Item.CORN: 0,
+	Enum.Item.WHEAT: 0,
+	Enum.Item.PUMPKIN: 0,
+	Enum.Item.TOMATO: 0,
+	Enum.Item.COIN: 10}
+	
+# inventory runtime (selalu start dari default)
+var items: Dictionary = DEFAULT_ITEMS.duplicate(true)
+	
+func merge_items(loaded: Dictionary) -> void:
+	items = DEFAULT_ITEMS.duplicate(true)
+	for k in loaded.keys():
+		items[k] = loaded[k]
+		
 var day : int = 1
 
-func change_item(item: Enum.Item, amount: int = 1, auto_hide: bool = true):
+#func change_item(item: Enum.Item, amount: int = 1, auto_hide: bool = true):
+	#items[item] += amount
+	#get_tree().get_first_node_in_group("ResourceUI").reveal(auto_hide)
+
+func change_item(item: Enum.Item, amount: int = 1, auto_hide: bool = true) -> void:
+	if not items.has(item):
+		items[item] = 0
 	items[item] += amount
-	get_tree().get_first_node_in_group("ResourceUI").reveal(auto_hide)
+
+	var ui := get_tree().get_first_node_in_group("ResourceUI")
+	if ui:
+		ui.reveal(auto_hide)
