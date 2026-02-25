@@ -179,3 +179,12 @@ func get_machine_coord() -> Vector2i:
 
 func _on_step_timer_timeout() -> void:
 	$Sounds/Step.play()
+	
+func _ready() -> void:
+	var cam := get_node_or_null("Camera2D") as Camera2D
+	if cam:
+		cam.make_current()
+		cam.reset_smoothing()
+		print("[CAM] Player camera current=", cam.is_current())
+	else:
+		print("[CAM] Camera2D not found under Player")

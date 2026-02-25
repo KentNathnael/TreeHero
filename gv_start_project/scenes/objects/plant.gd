@@ -12,13 +12,17 @@ func setup(grid_coord: Vector2i, parent: Node2D, new_res: PlantResource, plant_d
 	$FlashSprite2D.texture = res.texture
 	death.connect(plant_death_func)
 	res.connect("changed", update)
-
+	
+	add_to_group("Plants")
+	
+func get_plant_resource() -> PlantResource:
+	return res
 
 func update():
 	if res.death_count >= res.death_max:
+		res.dead = true
 		death.emit(coord)
 		queue_free()
-
 
 func grow(watered: bool):	
 	if watered:

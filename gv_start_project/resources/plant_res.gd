@@ -9,14 +9,20 @@ class_name PlantResource extends Resource
 
 var age: float
 var death_count: int
+var _dead: bool = false
 var dead: bool:
+	get:
+		return _dead
 	set(value):
-		dead = value
+		if _dead == value:
+			return
+		_dead = value
 		emit_changed()
 var reward: Enum.Item
+var seed_enum: int
 
-func setup(seed_enum: Enum.Seed, reward_item: Enum.Item):
-	# Ambil data dari Data.PLANT_DATA (Singleton kamu)
+func setup(seed_enum_in: Enum.Seed, reward_item: Enum.Item, consume_stock: bool = true):	# Ambil data dari Data.PLANT_DATA (Singleton kamu)
+	seed_enum = int(seed_enum_in)
 	var data = Data.PLANT_DATA[seed_enum]
 	
 	texture = load(data['texture'])
@@ -30,8 +36,22 @@ func setup(seed_enum: Enum.Seed, reward_item: Enum.Item):
 	# --- LOGIKA NGURANGIN STOK PAS NANAM ---
 	# Kita kurangi item yang sesuai dengan tipe hadiahnya (misal: Tomato item)
 	# auto_hide = false supaya UI resource tetap kelihatan pas angkanya berkurang
-	Data.change_item(reward, -1, false) 
-	print("Menanam ", name, ". Stok berkurang 1.")
+	if consume_stock:
+		Data.change_item(reward, -1, false) 
+		print("Menanam ", name, ". Stok berkurang 1.")
+
+func to_save_dict() -> Dictionary:
+	return {
+		"seed": seed_enum,
+		"age": age,
+		"death_count": death_count,
+		"dead": dead
+	}
+
+func apply_save_dict(d: Dictionary) -> void:
+	age = float(d.get("age", 0.0))
+	death_count = int(d.get("death_count", 0))
+	dead = bool(d.get("dead", false))
 
 
 func grow(sprite: Sprite2D):

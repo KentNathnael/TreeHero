@@ -49,4 +49,11 @@ func _on_button_pressed():
 	
 func _on_to_main_menu_pressed():
 	get_tree().paused = false
+
+	var scene := get_tree().current_scene
+	if scene and scene.has_method("save_progress"):
+		scene.save_progress()
+	else:
+		print("[SAVE] current scene has no save_progress()")
+
 	get_tree().change_scene_to_file("res://MainMeu/main_menu.tscn")

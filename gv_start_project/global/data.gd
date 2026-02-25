@@ -113,6 +113,8 @@ var items = {
 	Enum.Item.PUMPKIN: 50,
 	Enum.Item.TOMATO: 50}
 
+var day : int = 1
+
 func change_item(item: Enum.Item, amount: int = 1, auto_hide: bool = true):
 	items[item] += amount
 	get_tree().get_first_node_in_group("ResourceUI").reveal(auto_hide)

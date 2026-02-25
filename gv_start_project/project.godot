@@ -21,6 +21,7 @@ Enum="*res://global/enums.gd"
 Data="*res://global/data.gd"
 WorldTime="*res://WorldTime.gd"
 Backgroundmusic="*res://backgroundmusic.tscn"
+SaveManager="*res://save_manager.gd"
 
 [display]
 
