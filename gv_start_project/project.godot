@@ -22,6 +22,7 @@ Data="*res://global/data.gd"
 WorldTime="*res://WorldTime.gd"
 Backgroundmusic="*res://backgroundmusic.tscn"
 SaveManager="*res://save_manager.gd"
+TransitionScreen="*res://transition_screen.tscn"
 
 [display]
 

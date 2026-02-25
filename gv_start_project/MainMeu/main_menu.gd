@@ -3,6 +3,8 @@ extends Control
 var button_type = null
 
 func _on_start_but_pressed() -> void:
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/levels/level.tscn")
 
 
@@ -11,4 +13,6 @@ func _on_option_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
 	get_tree().quit()

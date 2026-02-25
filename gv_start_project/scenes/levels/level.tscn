@@ -1999,45 +1999,46 @@ position = Vector2(-598, 181)
 [node name="PermaObject32" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-1064, 335)
-size = 3
-style = 0
+size = 2
 
 [node name="PermaObject33" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-773, 484)
-size = 1
 style = 0
 
 [node name="PermaObject34" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-878, 530)
+size = 3
+
+[node name="PermaObject35" parent="Objects" instance=ExtResource("8_ouxo3")]
+position = Vector2(-657, 366)
 size = 1
 style = 0
 
-[node name="PermaObject35" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
-position = Vector2(-657, 366)
-size = 3
-
 [node name="PermaObject36" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-927, 460)
+size = 2
 style = 0
 
 [node name="PermaObject37" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-954, 376)
-size = 1
-style = 0
+size = 2
 
 [node name="PermaObject38" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-714, 375)
-style = 0
-
-[node name="PermaObject39" parent="Objects" instance=ExtResource("8_ouxo3")]
-position = Vector2(-641, 259)
 size = 1
 
-[node name="PermaObject40" parent="Objects" instance=ExtResource("8_ouxo3")]
+[node name="PermaObject39" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
+position = Vector2(-641, 259)
+size = 3
+style = 0
+
+[node name="PermaObject40" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-829, 183)
-size = 2
+style = 0
 
 [node name="PermaObject41" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
@@ -2046,116 +2047,115 @@ size = 2
 style = 0
 
 [node name="PermaObject42" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-775, 640)
-size = 2
+size = 1
 
 [node name="PermaObject43" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-620, 601)
-size = 3
+size = 1
 style = 0
 
 [node name="PermaObject44" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-1045, 451)
-size = 2
 
 [node name="PermaObject45" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-696, 23)
+size = 1
 style = 0
 
 [node name="PermaObject46" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-935, 53)
-size = 2
+size = 1
 style = 0
 
 [node name="PermaObject47" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-860, 33)
+style = 0
 
 [node name="PermaObject48" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-777, 14)
-size = 1
-style = 0
+size = 3
 
 [node name="PermaObject49" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-486, 458)
-style = 0
+size = 3
 
 [node name="PermaObject50" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-985, 82)
-size = 2
+size = 1
+style = 0
 
 [node name="PermaObject51" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-822, 389)
-size = 2
+size = 3
+style = 0
 
 [node name="PermaObject52" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-1064, 168)
+size = 1
 style = 0
 
 [node name="PermaObject53" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-733, 208)
-size = 3
+size = 1
+style = 0
 
 [node name="PermaObject54" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-939, 221)
-size = 1
-style = 0
 
 [node name="PermaObject55" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-981, 219)
-size = 2
+size = 1
 style = 0
 
 [node name="PermaObject56" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-983, 185)
-size = 1
+size = 3
+style = 0
 
 [node name="PermaObject57" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-910, 294)
+size = 3
 
 [node name="PermaObject58" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-866, 210)
-size = 1
 style = 0
 
 [node name="PermaObject59" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-857, 391)
 size = 3
+style = 0
 
 [node name="PermaObject60" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-953, 273)
-
-[node name="PermaObject61" parent="Objects" instance=ExtResource("8_ouxo3")]
-position = Vector2(-815, 309)
 size = 1
 
-[node name="PermaObject62" parent="Objects" instance=ExtResource("8_ouxo3")]
+[node name="PermaObject61" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
-position = Vector2(-754, 321)
+position = Vector2(-815, 309)
 size = 3
-style = 0
+
+[node name="PermaObject62" parent="Objects" instance=ExtResource("8_ouxo3")]
+position = Vector2(-754, 321)
 
 [node name="PermaObject63" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-571, 438)
-style = 0
+size = 1
 
 [node name="PermaObject64" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-637, 300)
-size = 1
+size = 3
 style = 0
 
 [node name="PermaObject65" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-922, 142)
-size = 2
 style = 0
 
 [node name="PermaObject66" parent="Objects" instance=ExtResource("8_ouxo3")]
@@ -2165,34 +2165,36 @@ size = 3
 style = 0
 
 [node name="PermaObject67" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-792, 220)
+size = 2
+style = 0
 
 [node name="PermaObject68" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-871, 294)
-size = 1
+size = 3
 
 [node name="PermaObject69" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-1088, 449)
+size = 1
+style = 0
 
 [node name="PermaObject70" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-923, 605)
-size = 1
 
 [node name="PermaObject71" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-1004, 574)
-size = 1
-style = 0
+size = 3
 
 [node name="PermaObject72" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-697, 607)
 size = 2
-style = 0
 
 [node name="PermaObject73" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-881, 639)
-size = 3
 
 [node name="PermaObject74" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-852, 604)
@@ -2202,56 +2204,53 @@ style = 0
 [node name="PermaObject75" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-654, 611)
-size = 3
+size = 2
 style = 0
 
 [node name="PermaObject76" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-606, 578)
-size = 1
 
 [node name="PermaObject77" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-775, 608)
-size = 3
 
 [node name="PermaObject78" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-702, 630)
-style = 0
+size = 2
 
 [node name="PermaObject79" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-908, 581)
-size = 2
+size = 3
 
 [node name="PermaObject80" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-961, 494)
-size = 3
-style = 0
+size = 2
 
 [node name="PermaObject81" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-1027, 518)
+size = 2
 style = 0
 
 [node name="PermaObject82" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-587, 348)
-size = 1
-style = 0
 
 [node name="PermaObject83" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-704, 82)
-size = 2
+size = 1
 style = 0
 
 [node name="PermaObject84" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-784, 130)
-size = 3
-style = 0
+size = 2
 
 [node name="PermaObject85" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-633, 326)
+size = 2
 
 [node name="PermaObject86" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-537, 118)
@@ -2260,7 +2259,6 @@ position = Vector2(-537, 118)
 z_index = 0
 position = Vector2(-497, 207)
 size = 2
-style = 0
 
 [node name="PermaObject88" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
@@ -2270,32 +2268,32 @@ style = 0
 
 [node name="PermaObject89" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-1020, 550)
+size = 1
+style = 0
 
 [node name="PermaObject90" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-1022, 73)
-size = 2
 
 [node name="PermaObject91" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-562, 70)
+size = 2
 
 [node name="PermaObject92" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-743, 619)
-size = 2
-style = 0
 
 [node name="PermaObject93" parent="Objects" instance=ExtResource("8_ouxo3")]
-position = Vector2(-639, 118)
-style = 0
-
-[node name="PermaObject94" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
-position = Vector2(-713, 427)
+position = Vector2(-639, 118)
 size = 2
 
+[node name="PermaObject94" parent="Objects" instance=ExtResource("8_ouxo3")]
+position = Vector2(-713, 427)
+
 [node name="PermaObject95" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(-506, 179)
+size = 3
 
 [node name="Tree32" parent="Objects" instance=ExtResource("7_mbbpy")]
 position = Vector2(18, 535)
@@ -2462,11 +2460,11 @@ texture = ExtResource("13_qhnmj")
 
 [node name="PermaObject" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(248, 636)
+style = 0
 
 [node name="PermaObject2" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-145, 109)
-size = 2
+size = 1
 style = 0
 
 [node name="PermaObject3" parent="Objects" instance=ExtResource("8_ouxo3")]
@@ -2478,8 +2476,7 @@ style = 0
 [node name="PermaObject4" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-80, 78)
-size = 2
-style = 0
+size = 3
 
 [node name="PermaObject5" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
@@ -2487,24 +2484,25 @@ position = Vector2(42, 748)
 size = 2
 
 [node name="PermaObject6" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(110, 703)
-style = 0
+size = 2
 
 [node name="PermaObject7" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(133, 800)
+size = 2
 style = 0
 
 [node name="PermaObject8" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(209, 730)
 size = 3
-style = 0
 
 [node name="PermaObject9" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-175, 214)
-size = 3
-style = 0
+size = 2
 
 [node name="PermaObject10" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
@@ -2514,28 +2512,26 @@ style = 0
 
 [node name="PermaObject11" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-29, 199)
-style = 0
 
 [node name="PermaObject12" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(153, 665)
 size = 1
+style = 0
 
 [node name="PermaObject13" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(108, 680)
-size = 1
+size = 2
 style = 0
 
 [node name="PermaObject14" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(3, 706)
-size = 3
-style = 0
+size = 2
 
 [node name="PermaObject15" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(-102, 444)
-size = 3
-style = 0
+size = 1
 
 [node name="PermaObject16" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-167, 499)
@@ -2544,12 +2540,13 @@ size = 1
 [node name="PermaObject17" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(51, 687)
-size = 3
+size = 2
 style = 0
 
 [node name="PermaObject18" parent="Objects" instance=ExtResource("8_ouxo3")]
 position = Vector2(-105, 631)
 size = 1
+style = 0
 
 [node name="PermaObject19" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
@@ -2558,9 +2555,8 @@ size = 2
 style = 0
 
 [node name="PermaObject20" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(339, 175)
-size = 2
+size = 1
 style = 0
 
 [node name="PermaObject21" parent="Objects" instance=ExtResource("8_ouxo3")]
@@ -2569,31 +2565,28 @@ size = 1
 style = 0
 
 [node name="PermaObject22" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(487, 184)
-size = 1
+size = 3
 style = 0
 
 [node name="PermaObject23" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(293, 112)
-size = 3
-style = 0
+size = 1
 
 [node name="PermaObject24" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(767, 334)
-size = 2
+size = 3
 
 [node name="PermaObject25" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(147, 202)
-size = 3
+size = 1
 
 [node name="PermaObject26" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(-157, 594)
-size = 2
-style = 0
+size = 3
 
 [node name="PermaObject27" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
@@ -2601,25 +2594,25 @@ position = Vector2(647, 30)
 size = 3
 
 [node name="PermaObject31" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(703, 73)
-size = 2
+size = 1
+style = 0
 
 [node name="PermaObject28" parent="Objects" instance=ExtResource("8_ouxo3")]
-z_index = 0
 position = Vector2(512, 220)
-size = 2
+size = 1
 style = 0
 
 [node name="PermaObject29" parent="Objects" instance=ExtResource("8_ouxo3")]
 z_index = 0
 position = Vector2(650, 289)
-size = 2
-style = 0
+size = 3
 
 [node name="PermaObject30" parent="Objects" instance=ExtResource("8_ouxo3")]
+z_index = 0
 position = Vector2(542, 271)
-size = 1
+size = 2
+style = 0
 
 [node name="ForestObject" type="Node2D" parent="Objects"]
 
